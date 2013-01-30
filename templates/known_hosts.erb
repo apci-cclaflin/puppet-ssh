@@ -1,0 +1,9 @@
+# THIS FILE IS MAINTAINED BY PUPPET, DO NOT MODIFY AS IT WILL BE OVERWRITTEN
+<% known_hosts.each do |n| -%>
+<% if n.has_key?('host_rsa_public') -%>
+<%= n.has_key?('hostname') ? "#{n['hostname']}," : '' %><%= n['fqdn'] %>,<%= n['ipaddress'] %> ssh-rsa <%= n['host_rsa_public'] %>
+<% end -%>
+<% if n.has_key?('host_dsa_public') -%>
+<%= n.has_key?('hostname') ? "#{n['hostname']}," : '' %><%= n['fqdn'] %>,<%= n['ipaddress'] %> ssh-dsa <%= n['host_dsa_public'] %>
+<% end -%>
+<% end -%>
