@@ -1,5 +1,5 @@
 class ssh::known_hosts::global {
-  $known_hosts = hiera('ssh_known_hosts_global')
+  $known_hosts = hiera('ssh::known_hosts::global::known_hosts', [])
 
   file { "/etc/ssh/ssh_known_hosts":
     ensure  => file,
